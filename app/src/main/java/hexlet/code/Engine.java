@@ -33,7 +33,7 @@ public class Engine {
                 break;
             }
             if (i == 2) {
-                System.out.println("Congratulation " + Cli.getName() + "!");
+                System.out.println("Congratulations, " + Cli.getName() + "!");
             }
         }
     }
