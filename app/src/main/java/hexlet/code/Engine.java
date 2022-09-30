@@ -29,7 +29,7 @@ public class Engine {
                             + "'" + Engine.correctAnswer[i]
                             + "'.\n"
                             + "Let's try again, "
-                            + Cli.getName());
+                            + Cli.getName() + "!");
                 break;
             }
             if (i == 2) {
