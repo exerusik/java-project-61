@@ -10,20 +10,20 @@ public class Even {
         int to = 100;
 
 
-        Engine.ruleOfGame = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        Engine.setRuleOfGame("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        for (int i = 0 ; i < 3 ; i++) {
+        for (int i = 0; i < Engine.COUNT_OF_ROUND; i++) {
             Random random = new Random();
             int randNum = random.nextInt(to);
             Engine.question[i] = Integer.toString(randNum);
 
             Engine.correctAnswer[i] = isEven(randNum) ? "yes" : "no";
 
-            }
+        }
         Engine.logicGames();
-        }
+    }
 
-            public static boolean isEven ( int randomNumber){
-                return randomNumber % 2 == 0;
-            }
-        }
+    public static boolean isEven(int randomNumber) {
+        return randomNumber % 2 == 0;
+    }
+}

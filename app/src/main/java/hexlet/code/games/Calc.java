@@ -8,8 +8,8 @@ public class Calc {
     public static void Calculate() {
 
         Random random = new Random();
-        Engine.ruleOfGame = "What is the result of the expression?";
-        for (int i = 0; i < 3; i++) {
+        Engine.setRuleOfGame("What is the result of the expression?");
+        for (int i = 0; i < Engine.COUNT_OF_ROUND; i++) {
             int randOne = random.nextInt(100);
             int randIndex = random.nextInt(3);
             int randTwo = random.nextInt(100);
