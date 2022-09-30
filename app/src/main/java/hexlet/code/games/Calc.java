@@ -15,16 +15,16 @@ public class Calc {
             int randTwo = random.nextInt(100);
             switch (randIndex) {
                 case 0 -> {
-                    Engine.question[i] = randOne + "+" + randTwo;
+                    Engine.question[i] = randOne + " + " + randTwo;
                     Engine.correctAnswer[i] = Integer.toString(randOne + randTwo);
                 }
                 case 1 -> {
                     Engine.correctAnswer[i] = Integer.toString(randOne - randTwo);
-                    Engine.question[i] = randOne + "-" + randTwo;
+                    Engine.question[i] = randOne + " - " + randTwo;
                 }
                 case 2 -> {
                     Engine.correctAnswer[i] = Integer.toString(randOne * randTwo);
-                    Engine.question[i] = randOne + "*" + randTwo;
+                    Engine.question[i] = randOne + " * " + randTwo;
                 }
             }
         }
