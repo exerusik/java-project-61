@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Progression {
-    public static void progressionMethod() {
+    public static void findNumber() {
         Random random = new Random();
 
         for (int i = 0; i < Engine.COUNT_OF_ROUND; i++) {
@@ -27,10 +27,11 @@ public class Progression {
                     continue;
                 }
                 roundOfProgression.append(" ").append(multiply);
+
             }
             Engine.question[i] = roundOfProgression.toString();
         }
         Engine.setRuleOfGame("What number is missing in the progression?");
-        Engine.logicGames();
+        Engine.start();
     }
 }

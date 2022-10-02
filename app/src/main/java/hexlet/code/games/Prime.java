@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Prime {
-    public static void primeGame() {
+    public static void findSimpleNumber() {
         Random random = new Random();
         Engine.setRuleOfGame("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         for (int i = 0; i < Engine.COUNT_OF_ROUND; i++) {
@@ -20,6 +20,6 @@ public class Prime {
             }
 
         }
-        Engine.logicGames();
+        Engine.start();
     }
 }

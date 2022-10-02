@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calc {
-    public static void Calculate() {
+    public static void generateMathExpression() {
 
         Random random = new Random();
         Engine.setRuleOfGame("What is the result of the expression?");
@@ -28,6 +28,6 @@ public class Calc {
                 }
             }
         }
-        Engine.logicGames();
+        Engine.start();
     }
 }

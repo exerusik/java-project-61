@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Gcd {
-    public static void gcd() {
+    public static void findLargestDivisor() {
         Random random = new Random();
         Engine.setRuleOfGame("Find the greatest common divisor of given numbers.");
 
@@ -16,7 +16,7 @@ public class Gcd {
             Engine.correctAnswer[i] = String.valueOf(gcdAlcorithm(randOne, randTwo));
 
         }
-        Engine.logicGames();
+        Engine.start();
     }
     public static int gcdAlcorithm(int one, int two) {
 

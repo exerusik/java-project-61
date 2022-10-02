@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Even {
 
-    public static void evenGame() {
+    public static void findEvenNumber() {
         int to = 100;
 
 
@@ -20,7 +20,7 @@ public class Even {
             Engine.correctAnswer[i] = isEven(randNum) ? "yes" : "no";
 
         }
-        Engine.logicGames();
+        Engine.start();
     }
 
     public static boolean isEven(int randomNumber) {
