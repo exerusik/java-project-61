@@ -8,26 +8,32 @@ public class Calc {
     public static void generateMathExpression() {
 
         Random random = new Random();
-        Engine.setRuleOfGame("What is the result of the expression?");
+        String rule = "What is the result of the expression?";
+        String [][] questionAndAnswer = new String[Engine.COUNT_OF_ROUND][Engine.Q_AND_A];
         for (int i = 0; i < Engine.COUNT_OF_ROUND; i++) {
+            char[] operation = {'+', '-', '*'};
             int randOne = random.nextInt(100);
-            int randIndex = random.nextInt(3);
+            int randIndex = random.nextInt(0,3);
             int randTwo = random.nextInt(100);
-            switch (randIndex) {
-                case 0 -> {
-                    Engine.question[i] = randOne + " + " + randTwo;
-                    Engine.correctAnswer[i] = Integer.toString(randOne + randTwo);
-                }
-                case 1 -> {
-                    Engine.correctAnswer[i] = Integer.toString(randOne - randTwo);
-                    Engine.question[i] = randOne + " - " + randTwo;
-                }
-                case 2 -> {
-                    Engine.correctAnswer[i] = Integer.toString(randOne * randTwo);
-                    Engine.question[i] = randOne + " * " + randTwo;
-                }
-            }
+            int result = getArifmetic(randOne, randTwo,operation[randIndex]);
+
+            questionAndAnswer[i][Engine.QUESTION] = randOne + " " + operation[randIndex] + " " + randTwo;
+            questionAndAnswer[i][Engine.ANSWER] = String.valueOf(result);
+
         }
-        Engine.start();
+        Engine.start(rule, questionAndAnswer);
+    }
+    public static int getArifmetic(int one, int two, char operator) {
+        int result = 0;
+        switch (operator) {
+            case '+' : result = one + two;
+            break;
+            case '-' : result = one - two;
+            break;
+            case '*' : result = one * two;
+            break;
+            default : throw new IllegalArgumentException("Something went wrong");
+        }
+        return result;
     }
 }

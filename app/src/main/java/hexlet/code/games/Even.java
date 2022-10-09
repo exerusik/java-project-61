@@ -8,19 +8,18 @@ public class Even {
 
     public static void findEvenNumber() {
         int to = 100;
-
-
-        Engine.setRuleOfGame("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        String questionAndAnswer[][] = new String[Engine.COUNT_OF_ROUND][Engine.Q_AND_A];
 
         for (int i = 0; i < Engine.COUNT_OF_ROUND; i++) {
-            Random random = new Random();
-            int randNum = random.nextInt(to);
-            Engine.question[i] = Integer.toString(randNum);
+                Random random = new Random();
+                int randNum = random.nextInt(to);
+                questionAndAnswer[i][Engine.QUESTION] = Integer.toString(randNum);
 
-            Engine.correctAnswer[i] = isEven(randNum) ? "yes" : "no";
+                questionAndAnswer[i][Engine.ANSWER] = isEven(randNum) ? "yes" : "no";
 
         }
-        Engine.start();
+        Engine.start(rule,questionAndAnswer);
     }
 
     public static boolean isEven(int randomNumber) {

@@ -7,31 +7,25 @@ import java.util.Random;
 public class Progression {
     public static void findNumber() {
         Random random = new Random();
+        String rule = "What number is missing in the progression?";
+        String [][] questionAndAnswer = new String[Engine.COUNT_OF_ROUND][Engine.Q_AND_A];
 
         for (int i = 0; i < Engine.COUNT_OF_ROUND; i++) {
-            int fullProgressionLength = random.nextInt(6, 10);
-            String[] fullProgression = new String[fullProgressionLength];
-
-            int firstElement = random.nextInt(2, 10);
-            int commonRatio = random.nextInt(2, 5);
-            fullProgression[0] = String.valueOf(firstElement);
-            int randomElementOfProgression = random.nextInt(1, fullProgressionLength);
-
-            StringBuilder roundOfProgression = new StringBuilder(fullProgression[0]);
-            for (int j = 1; j < fullProgression.length; j++) {
-                int multiply = Integer.parseInt(fullProgression[j - 1]) * commonRatio;
-                fullProgression[j] = String.valueOf(multiply);
-                if (j == randomElementOfProgression) {
-                    roundOfProgression.append(" ..");
-                    Engine.correctAnswer[i] = String.valueOf(multiply);
-                    continue;
+            String question = "";
+            int firstElement = random.nextInt(50);
+            int commonRatio = random.nextInt(1,10);
+            int lengthProgression = random.nextInt(5,10);
+            int missElement = random.nextInt(2,10);
+            for (int j = 0; j < lengthProgression; j++) {
+                question += firstElement + " ";
+                firstElement += commonRatio;
+                if (j == missElement) {
+                    question += ".." + " ";
+                    questionAndAnswer[i][Engine.ANSWER] = String.valueOf(firstElement);
                 }
-                roundOfProgression.append(" ").append(multiply);
-
             }
-            Engine.question[i] = roundOfProgression.toString();
+            questionAndAnswer[i][Engine.QUESTION] =question;
         }
-        Engine.setRuleOfGame("What number is missing in the progression?");
-        Engine.start();
+        Engine.start(rule, questionAndAnswer);
     }
 }

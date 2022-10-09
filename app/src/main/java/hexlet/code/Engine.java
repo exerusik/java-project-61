@@ -4,42 +4,41 @@ import java.util.Scanner;
 
 public class Engine {
     
-
-    public static String[] correctAnswer = new String[Engine.COUNT_OF_ROUND];
-    private static String ruleOfGame;
-
-    public static String[] question = new String[Engine.COUNT_OF_ROUND];
-
     public static final int COUNT_OF_ROUND = 3;
+    public static final int Q_AND_A = 2;
 
-    public static void start() {
-        Cli.greting();
+    public static final int QUESTION = 0;
+
+    public static final int ANSWER = 1;
+
+
+    public static void start(String ruleOfGame, String[][] questionAndAnswer) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String name = scanner.nextLine();
+        System.out.println("Hello, " + name + "!");
         System.out.println(ruleOfGame);
 
 
-        for (int i = 0; i < COUNT_OF_ROUND; i++) {
-            System.out.println("Question: " + question[i]);
-            System.out.print("Your answer: ");
-            Scanner scanner = new Scanner(System.in);
-            String answer = scanner.nextLine();
-            if (answer.equals(correctAnswer[i])) {
-                System.out.println("Correct!");
-            } else {
-                System.out.println("'" + answer + "'"
+        for (int i = 0; i < questionAndAnswer.length; i++) {
+            for (int j = 0; j < questionAndAnswer[i].length; j++) {
+            System.out.println("Question: " + questionAndAnswer[i][QUESTION]);
+                System.out.print("Your answer: ");
+                String answer = scanner.nextLine();
+                if (answer.equals(questionAndAnswer[i][ANSWER])) {
+                    System.out.println("Correct!");
+                } else {
+                    System.out.println("'" + answer + "'"
                             + " is wrong answer ;(. Correct answer was "
-                            + "'" + Engine.correctAnswer[i]
+                            + "'" + questionAndAnswer[i] [ANSWER]
                             + "'.\n"
                             + "Let's try again, "
-                            + Cli.getName() + "!");
-                break;
-            }
-            if (i == 2) {
-                System.out.println("Congratulations, " + Cli.getName() + "!");
+                            + name + "!");
+                    return;
+                }
             }
         }
-    }
-
-    public static void setRuleOfGame(String ruleOfGame) {
-        Engine.ruleOfGame = ruleOfGame;
+        System.out.println("Congratulations, " + name + "!");
     }
 }
