@@ -23,15 +23,16 @@ public class Engine {
 
         for (int i = 0; i < questionAndAnswer.length; i++) {
             for (int j = 0; j < questionAndAnswer[i].length; j++) {
-            System.out.println("Question: " + questionAndAnswer[i][QUESTION]);
+            System.out.println("Question: " + questionAndAnswer[i][j]);
+            j++;
                 System.out.print("Your answer: ");
                 String answer = scanner.nextLine();
-                if (answer.equals(questionAndAnswer[i][ANSWER])) {
+                if (answer.equals(questionAndAnswer[i][j])) {
                     System.out.println("Correct!");
                 } else {
                     System.out.println("'" + answer + "'"
                             + " is wrong answer ;(. Correct answer was "
-                            + "'" + questionAndAnswer[i] [ANSWER]
+                            + "'" + questionAndAnswer[i] [j]
                             + "'.\n"
                             + "Let's try again, "
                             + name + "!");
