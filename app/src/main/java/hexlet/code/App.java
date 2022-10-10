@@ -10,12 +10,12 @@ import java.util.Scanner;
 
 public class App {
 
-    private static final String welcome = "1";
-    private static final String even = "2";
-    private static final String calculate = "3";
-    private static final String gcd = "4";
-    private static final String progression = "5";
-    private static final String prime = "6";
+    private static final String WELCOME = "1";
+    private static final String EVEN = "2";
+    private static final String CALCULATE = "3";
+    private static final String GCD = "4";
+    private static final String PROGRESSION = "5";
+    private static final String PRIME = "6";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -30,17 +30,17 @@ public class App {
         System.out.print("Your choice: ");
         String choice = scanner.nextLine();
         switch (choice) {
-            case welcome : Cli.greting();
+            case WELCOME: Cli.greting();
             break;
-            case even : Even.findEvenNumber();
+            case EVEN: Even.findEvenNumber();
             break;
-            case calculate: Calc.generateMathExpression();
+            case CALCULATE: Calc.generateMathExpression();
             break;
-            case gcd : Gcd.findLargestDivisor();
+            case GCD: Gcd.findLargestDivisor();
             break;
-            case progression : Progression.findNumber();
+            case PROGRESSION: Progression.findNumber();
             break;
-            case prime : Prime.findSimpleNumber();
+            case PRIME: Prime.findSimpleNumber();
             break;
             default : throw new IllegalArgumentException("You entered invalid number, this game does not exist");
         }

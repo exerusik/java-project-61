@@ -5,18 +5,18 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Gcd {
+    private static final String RULE = "Find the greatest common divisor of given numbers.";
+    private static final String[][] QUESTION_AND_ANSWER = new String[Engine.COUNT_OF_ROUND][Engine.Q_AND_A];
     public static void findLargestDivisor() {
         Random random = new Random();
-        String rule = "Find the greatest common divisor of given numbers.";
-        String[][] questionAndAnswer = new String[Engine.COUNT_OF_ROUND][Engine.Q_AND_A];
         for (int i = 0; i < Engine.COUNT_OF_ROUND; i++) {
-            int randOne = random.nextInt(50);
-            int randTwo = random.nextInt(50);
-            questionAndAnswer[i][Engine.QUESTION] = randOne + " " + randTwo;
-            questionAndAnswer[i][Engine.ANSWER] = String.valueOf(gcdAlcorithm(randOne, randTwo));
+            int randOne = random.nextInt(Engine.BOUND);
+            int randTwo = random.nextInt(Engine.BOUND);
+            QUESTION_AND_ANSWER[i][Engine.QUESTION] = randOne + " " + randTwo;
+            QUESTION_AND_ANSWER[i][Engine.ANSWER] = String.valueOf(gcdAlcorithm(randOne, randTwo));
 
         }
-        Engine.start(rule, questionAndAnswer);
+        Engine.start(RULE, QUESTION_AND_ANSWER);
     }
     public static int gcdAlcorithm(int one, int two) {
 

@@ -5,21 +5,18 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Even {
+    private static final String RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static final String[][] QUESTION_AND_ANSWER = new String[Engine.COUNT_OF_ROUND][Engine.Q_AND_A];
 
     public static void findEvenNumber() {
-        int to = 100;
-        String rule = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        String questionAndAnswer[][] = new String[Engine.COUNT_OF_ROUND][Engine.Q_AND_A];
-
         for (int i = 0; i < Engine.COUNT_OF_ROUND; i++) {
-                Random random = new Random();
-                int randNum = random.nextInt(to);
-                questionAndAnswer[i][Engine.QUESTION] = Integer.toString(randNum);
-
-                questionAndAnswer[i][Engine.ANSWER] = isEven(randNum) ? "yes" : "no";
+            Random random = new Random();
+            int randNum = random.nextInt(Engine.BOUND);
+            QUESTION_AND_ANSWER[i][Engine.QUESTION] = Integer.toString(randNum);
+            QUESTION_AND_ANSWER[i][Engine.ANSWER] = isEven(randNum) ? "yes" : "no";
 
         }
-        Engine.start(rule,questionAndAnswer);
+        Engine.start(RULE, QUESTION_AND_ANSWER);
     }
 
     public static boolean isEven(int randomNumber) {

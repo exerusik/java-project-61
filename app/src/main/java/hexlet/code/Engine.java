@@ -3,13 +3,14 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    
     public static final int COUNT_OF_ROUND = 3;
     public static final int Q_AND_A = 2;
 
     public static final int QUESTION = 0;
 
     public static final int ANSWER = 1;
+
+    public static final int BOUND = 100;
 
 
     public static void start(String ruleOfGame, String[][] questionAndAnswer) {
@@ -23,8 +24,8 @@ public class Engine {
 
         for (int i = 0; i < questionAndAnswer.length; i++) {
             for (int j = 0; j < questionAndAnswer[i].length; j++) {
-            System.out.println("Question: " + questionAndAnswer[i][j]);
-            j++;
+                System.out.println("Question: " + questionAndAnswer[i][j]);
+                j++;
                 System.out.print("Your answer: ");
                 String answer = scanner.nextLine();
                 if (answer.equals(questionAndAnswer[i][j])) {
@@ -32,7 +33,7 @@ public class Engine {
                 } else {
                     System.out.println("'" + answer + "'"
                             + " is wrong answer ;(. Correct answer was "
-                            + "'" + questionAndAnswer[i] [j]
+                            + "'" + questionAndAnswer[i][j]
                             + "'.\n"
                             + "Let's try again, "
                             + name + "!");
