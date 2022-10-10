@@ -15,14 +15,16 @@ public class Progression {
             int firstElement = random.nextInt(50);
             int commonRatio = random.nextInt(1,10);
             int lengthProgression = random.nextInt(5,10);
-            int missElement = random.nextInt(2,10);
+            int missElement = random.nextInt(lengthProgression);
             for (int j = 0; j < lengthProgression; j++) {
-                question += firstElement + " ";
                 firstElement += commonRatio;
                 if (j == missElement) {
                     question += ".." + " ";
                     questionAndAnswer[i][Engine.ANSWER] = String.valueOf(firstElement);
+                    continue;
                 }
+                question += firstElement + " ";
+
             }
             questionAndAnswer[i][Engine.QUESTION] =question;
         }
