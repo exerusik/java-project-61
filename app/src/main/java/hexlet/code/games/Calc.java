@@ -5,7 +5,6 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calc {
-    private static final int NUMBER_OF_OPERATION = 3;
     private static final String RULE = "What is the result of the expression?";
 
     private static final char[] OPERATION = {'+', '-', '*'};
@@ -14,7 +13,7 @@ public class Calc {
         String[][] questionAndAnswer = new String[Engine.COUNT_OF_ROUND][Engine.Q_AND_A];
         for (int i = 0; i < Engine.COUNT_OF_ROUND; i++) {
             int randOne = random.nextInt(Engine.BOUND);
-            int randIndex = random.nextInt(0, NUMBER_OF_OPERATION);
+            int randIndex = random.nextInt(0, OPERATION.length);
             int randTwo = random.nextInt(Engine.BOUND);
             int result = getArithmetic(randOne, randTwo, OPERATION[randIndex]);
 
